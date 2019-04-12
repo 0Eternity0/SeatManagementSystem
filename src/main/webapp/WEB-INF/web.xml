@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-  <display-name>SSM</display-name>
+  <display-name>seatManagementSystem</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -38,7 +38,6 @@
   <listener>
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   </listener>
-
   <!-- 配置过滤器，解决post的乱码问题 -->
   <filter>
     <filter-name>encoding</filter-name>
@@ -58,7 +57,7 @@
 
   <!-- 配置SpringMVC -->
   <servlet>
-    <servlet-name>SSM</servlet-name>
+    <servlet-name>seatManagementSystem</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
@@ -70,14 +69,11 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SSM</servlet-name>
+    <servlet-name>seatManagementSystem</servlet-name>
     <!-- 所有的请求都进入springMVC -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.woff</url-pattern>
-  </servlet-mapping>
+
 
 </web-app>

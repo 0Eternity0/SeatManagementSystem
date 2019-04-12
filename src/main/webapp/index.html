@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+
+
 </head>
 <body>
 <h1>this is index!!!</h1>
 
+
+    用户名
+    <input type="text" id="username">
+    密码
+    <input type="password" id="password">
+    <button onclick="login()">注册</button>
+
+
 </body>
+<script src="static/libs/jquery-3.3.1.js"></script>
+<script>
+    /*$(document).ready(function () {
+
+
+    });*/
+
+    function login() {
+        var username=$('#username').val();
+
+        var password=$('#password').val();
+
+        $.ajax({
+            type:"post",
+            contentType : "application/x-www-form-urlencoded",
+            url:'/register',
+            data:{
+                username:username,
+                password:password
+            },/*表单数据*/
+            success:function (data) {
+                if(data===1){
+                    alert('注册成功');
+                }else {
+                    alert('注册失败');
+                }
+            },
+            error:function (jqXHR) {
+                console.log(jqXHR.status);
+            }
+
+        })
+    }
+
+</script>
+
 </html>

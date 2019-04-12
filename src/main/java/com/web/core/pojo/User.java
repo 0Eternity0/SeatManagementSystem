@@ -9,7 +9,6 @@ public class User {
     private String password;
 
 
-
     public String getUsername() {
         return username;
     }
@@ -30,7 +29,7 @@ public class User {
     public String toString() {
         return "User{" +
 
-                ", username='" + username + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

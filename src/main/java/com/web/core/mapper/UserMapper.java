@@ -3,14 +3,16 @@ package com.web.core.mapper;
 
 import com.web.core.pojo.User;
 
-/**
- * @author TCW
- */
 public interface UserMapper {
+    int deleteByPrimaryKey(Integer id);
 
-    /**
-     * 插入user
-     * @param user
-     */
-    void insertUser(User user);
+    int insert(User record);
+
+    int insertSelective(User record);
+
+    User selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
 }

@@ -7,7 +7,19 @@
 <mapper namespace="com.web.core.mapper.UserMapper">
 
     <insert id="insertUser" parameterType="user">
-    insert into user (username, password) VALUES (#{username},#{password})
+        insert into data (name, password) values (#{username},#{password})
     </insert>
+
+    <select id="selectUser" parameterType="user" resultType="user">
+        select * from data where name=#{username} and password=#{password}
+    </select>
+
+    <delete id="deleteUser" parameterType="user">
+        delete from data where name=#{username}
+    </delete>
+
+    <update id="updateUser" parameterType="user">
+        update data set password=#{password} where name=#{username}
+    </update>
 
 </mapper>

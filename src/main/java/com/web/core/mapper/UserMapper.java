@@ -13,4 +13,7 @@ public interface UserMapper {
      * @param user
      */
     void insertUser(User user);
+    User selectUser(User user);
+    void deleteUser(User user);
+    void updateUser(User user);
 }

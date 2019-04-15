@@ -13,4 +13,7 @@ public interface UserService {
      * @param user
      */
     void addUser(User user);
+    User selectUser(User user);
+    void deleteUser(User user);
+    void updateUser(User user);
 }

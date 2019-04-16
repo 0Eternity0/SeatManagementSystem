@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.IDao.RegionMapper" >
+  <resultMap id="BaseResultMap" type="test.domain.Region" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="region_name" property="regionName" jdbcType="VARCHAR" />
+    <result column="region_category" property="regionCategory" jdbcType="VARCHAR" />
+    <result column="seat_num" property="seatNum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, region_name, region_category, seat_num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from region
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from region
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="test.domain.Region" >
+    insert into region (id, region_name, region_category, 
+      seat_num)
+    values (#{id,jdbcType=INTEGER}, #{regionName,jdbcType=VARCHAR}, #{regionCategory,jdbcType=VARCHAR}, 
+      #{seatNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="test.domain.Region" >
+    insert into region
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="regionName != null" >
+        region_name,
+      </if>
+      <if test="regionCategory != null" >
+        region_category,
+      </if>
+      <if test="seatNum != null" >
+        seat_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="regionName != null" >
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="regionCategory != null" >
+        #{regionCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="seatNum != null" >
+        #{seatNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.domain.Region" >
+    update region
+    <set >
+      <if test="regionName != null" >
+        region_name = #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="regionCategory != null" >
+        region_category = #{regionCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="seatNum != null" >
+        seat_num = #{seatNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.domain.Region" >
+    update region
+    set region_name = #{regionName,jdbcType=VARCHAR},
+      region_category = #{regionCategory,jdbcType=VARCHAR},
+      seat_num = #{seatNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

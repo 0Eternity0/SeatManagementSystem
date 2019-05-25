@@ -2,18 +2,22 @@ package com.web.core.service;
 
 import com.web.core.pojo.User;
 
-
 /**
  * @author TCW
  */
 public interface UserService {
 
-    /**
-     * 插入一个user
-     * @param user
-     */
-    void addUser(User user);
-    User selectUser(User user);
-    void deleteUser(User user);
-    void updateUser(User user);
+     int deleteByPrimaryKey(Integer id);
+
+    int insert(User record);
+
+    int insertSelective(User record);
+
+    User selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
+
+    User selectBynamepwd(String username,String password);
 }

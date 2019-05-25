@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="test.IDao.RegionMapper" >
-  <resultMap id="BaseResultMap" type="test.domain.Region" >
+<mapper namespace="com.web.core.mapper.RegionMapper" >
+  <resultMap id="BaseResultMap" type="region" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="region_name" property="regionName" jdbcType="VARCHAR" />
     <result column="region_category" property="regionCategory" jdbcType="VARCHAR" />
@@ -20,13 +20,13 @@
     delete from region
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="test.domain.Region" >
+  <insert id="insert" parameterType="region" >
     insert into region (id, region_name, region_category, 
       seat_num)
     values (#{id,jdbcType=INTEGER}, #{regionName,jdbcType=VARCHAR}, #{regionCategory,jdbcType=VARCHAR}, 
       #{seatNum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="test.domain.Region" >
+  <insert id="insertSelective" parameterType="region" >
     insert into region
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="test.domain.Region" >
+  <update id="updateByPrimaryKeySelective" parameterType="region" >
     update region
     <set >
       <if test="regionName != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="test.domain.Region" >
+  <update id="updateByPrimaryKey" parameterType="region" >
     update region
     set region_name = #{regionName,jdbcType=VARCHAR},
       region_category = #{regionCategory,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="test.IDao.UserMapper">
-    <resultMap id="BaseResultMap" type="test.domain.User">
+<mapper namespace="com.web.core.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="user">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
@@ -22,7 +22,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="test.domain.User">
+    <insert id="insert" parameterType="user">
     insert into user (id, username, password, 
       name, department, grade
       )
@@ -30,7 +30,7 @@
       #{name,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER}
       )
   </insert>
-    <insert id="insertSelective" parameterType="test.domain.User">
+    <insert id="insertSelective" parameterType="user">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -73,7 +73,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="test.domain.User">
+    <update id="updateByPrimaryKeySelective" parameterType="user">
         update user
         <set>
             <if test="username != null">
@@ -94,7 +94,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="test.domain.User">
+    <update id="updateByPrimaryKey" parameterType="user">
     update user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -103,4 +103,12 @@
       grade = #{grade,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <select id="selectBynamepwd" resultType="user">
+        select *
+        from user
+        where username=#{0}
+        and
+              password=#{1}
+    </select>
 </mapper>

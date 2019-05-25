@@ -5,6 +5,10 @@ public class Seat {
 
     private Integer regionId;
 
+    private String loca;
+
+    private String falg;
+
     public Integer getId() {
         return id;
     }
@@ -19,5 +23,21 @@ public class Seat {
 
     public void setRegionId(Integer regionId) {
         this.regionId = regionId;
+    }
+
+    public String getLoca() {
+        return loca;
+    }
+
+    public void setLoca(String loca) {
+        this.loca = loca == null ? null : loca.trim();
+    }
+
+    public String getFalg() {
+        return falg;
+    }
+
+    public void setFalg(String falg) {
+        this.falg = falg == null ? null : falg.trim();
     }
 }

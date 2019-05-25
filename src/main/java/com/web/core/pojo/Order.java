@@ -1,5 +1,7 @@
 package com.web.core.pojo;
 
+import java.util.Date;
+
 public class Order {
     private Integer id;
 
@@ -7,9 +9,11 @@ public class Order {
 
     private Integer seatId;
 
-    private String time;
+    private Date startTime;
 
     private Integer status;
+
+    private Date endTime;
 
     public Integer getId() {
         return id;
@@ -35,12 +39,12 @@ public class Order {
         this.seatId = seatId;
     }
 
-    public String getTime() {
-        return time;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setTime(String time) {
-        this.time = time == null ? null : time.trim();
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
     public Integer getStatus() {
@@ -49,5 +53,13 @@ public class Order {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 }

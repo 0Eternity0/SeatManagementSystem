@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-05-25 19:05:07
+Date: 2019-05-25 19:59:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,8 +23,9 @@ CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL COMMENT '预约人主键',
   `seat_id` int(11) NOT NULL COMMENT '座位主键',
-  `time` varchar(50) DEFAULT NULL COMMENT '预约时间段',
+  `start_time` datetime NOT NULL COMMENT '预约开始时间',
   `status` int(11) DEFAULT NULL COMMENT '座位状态码。0待签到入座；1入座；2暂离；',
+  `end_time` datetime NOT NULL COMMENT '预约结束时间',
   PRIMARY KEY (`id`),
   KEY `order_user` (`user_id`),
   KEY `order_seat` (`seat_id`),
@@ -42,7 +43,7 @@ CREATE TABLE `region` (
   `region_category` varchar(50) DEFAULT NULL COMMENT '阅读区分类，如计算机科学区，文学区',
   `seat_num` int(11) NOT NULL DEFAULT '0' COMMENT '座位数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for report
@@ -71,10 +72,12 @@ DROP TABLE IF EXISTS `seat`;
 CREATE TABLE `seat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `region_id` int(11) NOT NULL COMMENT '座位所属预览区编号',
+  `loca` varchar(10) NOT NULL COMMENT '座位的位置信息，如三排六列：（3，6）',
+  `falg` varchar(2) NOT NULL COMMENT '启用状态，0允许预约，1不允许预约',
   PRIMARY KEY (`id`),
   KEY `seat_region` (`region_id`),
   CONSTRAINT `seat_region` FOREIGN KEY (`region_id`) REFERENCES `region` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for user
@@ -88,4 +91,4 @@ CREATE TABLE `user` (
   `department` varchar(30) DEFAULT NULL COMMENT '学院信息',
   `grade` int(11) DEFAULT NULL COMMENT '信用评级分',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

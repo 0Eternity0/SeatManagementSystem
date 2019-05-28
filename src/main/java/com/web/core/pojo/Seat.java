@@ -40,4 +40,14 @@ public class Seat {
     public void setFalg(String falg) {
         this.falg = falg == null ? null : falg.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "id=" + id +
+                ", regionId=" + regionId +
+                ", loca='" + loca + '\'' +
+                ", falg='" + falg + '\'' +
+                '}';
+    }
 }

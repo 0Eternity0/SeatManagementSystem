@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.core.mapper.SeatMapper">
+
+    <select id="queryUsedSeatInfo" resultType="seat">
+        select s.id,s.loca,s.falg s from `order` o  inner join seat s on o.seat_id =s.id
+
+        inner join region r on s.region_id=r.id
+
+        where (
+        (o.end_time &gt;=#{start,jdbcType=TIMESTAMP} AND o.end_time &lt;=#{end,jdbcType=TIMESTAMP})
+        OR ( o.start_time &gt;=#{start,jdbcType=TIMESTAMP} AND o.end_time &lt;=#{end,jdbcType=TIMESTAMP})
+        OR  (o.start_time &lt;=#{end,jdbcType=TIMESTAMP} AND o.start_time &gt;=#{start,jdbcType=TIMESTAMP})
+        )
+        AND r.id=#{RegionId}
+
+    </select>
+
+    <select id="queryAllSeatInfo" resultType="seat">
+        select s.id ,s.loca,s.falg  from seat s
+        inner join region r on r.id =s.region_id
+        where r.id=#{id}
+    </select>
+</mapper>

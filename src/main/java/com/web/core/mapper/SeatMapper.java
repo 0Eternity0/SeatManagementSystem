@@ -1,12 +1,17 @@
 package com.web.core.mapper;
 
 
+import com.web.core.pojo.Order;
 import com.web.core.pojo.Seat;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * @author TCW
+ */
 public interface SeatMapper {
 
     /**
@@ -33,4 +38,12 @@ public interface SeatMapper {
      * @return
      */
     Integer querySeatStatus(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("seatId") int SeatId);
+
+
+    /**
+     * 插入预约项
+     * @param order
+     * @return
+     */
+    int insert(Order order);
 }

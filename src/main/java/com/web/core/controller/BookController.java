@@ -2,7 +2,10 @@ package com.web.core.controller;
 
 
 
+import com.web.core.mapper.SeatMapper;
+import com.web.core.pojo.Order;
 import com.web.core.pojo.SeatInfoItem;
+import com.web.core.pojo.User;
 import com.web.core.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,7 +76,7 @@ public class BookController {
      */
     @RequestMapping("SelSeat")
     @ResponseBody
-    public String SelSeat(String time,int SeatNum){
+    public String SelSeat(String time, int SeatNum, HttpSession session){
         System.out.println("time = [" + time + "], SeatNum = [" + SeatNum + "]");
         String[] times=time.split(" to ");
         SimpleDateFormat sdf =   new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
@@ -83,16 +87,22 @@ public class BookController {
             /*解析查询的开始和结束时段*/
             startTime = sdf.parse(times[0]);
             endTime = sdf.parse(times[1]);
-            int statusCode=bookService.checkSeatStatus(startTime,endTime,SeatNum);
-            if(statusCode==0){
-                //预约
+            User user=(User)session.getAttribute("User");
+            if(user==null){
+                //未登录
+                return "0";
+            }
+            Order order=new Order(user.getId(),SeatNum,startTime,0,endTime);
+           //预约
+            if(bookService.makeOrder(order)){
+                return "1";
+            }else{
+                return "0";
             }
         }catch (ParseException e){
             e.printStackTrace();
+            return "0";
         }
 
-
-
-        return "ok";
     }
 }

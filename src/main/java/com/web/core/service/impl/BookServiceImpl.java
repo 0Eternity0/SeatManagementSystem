@@ -2,6 +2,7 @@ package com.web.core.service.impl;
 
 import com.web.core.mapper.RegionMapper;
 import com.web.core.mapper.SeatMapper;
+import com.web.core.pojo.Order;
 import com.web.core.pojo.Region;
 import com.web.core.pojo.Seat;
 import com.web.core.pojo.SeatInfoItem;
@@ -54,10 +55,18 @@ public class BookServiceImpl  implements BookService {
             //入座
             code=2;
         }else{
-            //暂时离开
-            code =3;
+            code = 3;
         }
 
         return code;
+    }
+
+    @Override
+    public boolean makeOrder(Order order) {
+        if(checkSeatStatus(order.getStartTime(),order.getEndTime(),order.getSeatId())!=0){
+            return false;
+        }
+       seatMapper.insert(order);
+        return true;
     }
 }

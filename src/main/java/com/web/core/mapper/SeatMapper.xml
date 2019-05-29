@@ -28,4 +28,9 @@
       and o.seat_id=#{seatId})
 
     </select>
+
+    <insert id="insert" parameterType="order">
+      insert into `order`  (user_id,seat_id,status,start_time,end_time)
+      values (#{userId,jdbcType=INTEGER},#{seatId,jdbcType=INTEGER},#{status,jdbcType=INTEGER},#{startTime,jdbcType=TIMESTAMP},#{endTime,jdbcType=TIMESTAMP})
+    </insert>
 </mapper>

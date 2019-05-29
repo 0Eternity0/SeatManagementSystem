@@ -62,4 +62,12 @@ public class Order {
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
+
+    public Order(Integer userId, Integer seatId, Date startTime, Integer status, Date endTime) {
+        this.userId = userId;
+        this.seatId = seatId;
+        this.startTime = startTime;
+        this.status = status;
+        this.endTime = endTime;
+    }
 }

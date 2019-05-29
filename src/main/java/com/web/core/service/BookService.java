@@ -1,6 +1,7 @@
 package com.web.core.service;
 
 
+import com.web.core.pojo.Order;
 import com.web.core.pojo.SeatInfoItem;
 
 import java.util.Date;
@@ -24,4 +25,11 @@ public interface BookService {
      * @return 0：空闲 1：已预约未入座 2：已入座 3：暂时离开
      */
     int checkSeatStatus(Date startTime,Date endTime,int seatId);
+
+    /**
+     * 确认座位状态并进行预约操作
+     * @param order
+     * @return 成功返回true，否者返回false
+     */
+    boolean makeOrder(Order order);
 }

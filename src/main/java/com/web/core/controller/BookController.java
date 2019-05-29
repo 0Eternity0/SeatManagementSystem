@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 处理所有预约相关的请求
  * @author TCW
  */
 @Controller
+@RequestMapping("Book")
 public class BookController {
 
 

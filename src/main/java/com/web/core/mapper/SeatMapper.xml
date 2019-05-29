@@ -8,9 +8,8 @@
         inner join region r on s.region_id=r.id
 
         where (
-        (o.end_time &gt;=#{start,jdbcType=TIMESTAMP} AND o.end_time &lt;=#{end,jdbcType=TIMESTAMP})
-        OR ( o.start_time &gt;=#{start,jdbcType=TIMESTAMP} AND o.end_time &lt;=#{end,jdbcType=TIMESTAMP})
-        OR  (o.start_time &lt;=#{end,jdbcType=TIMESTAMP} AND o.start_time &gt;=#{start,jdbcType=TIMESTAMP})
+        (o.end_time &gt;#{start,jdbcType=TIMESTAMP} AND o.end_time &lt;#{end,jdbcType=TIMESTAMP})
+        OR  (o.start_time &lt;#{end,jdbcType=TIMESTAMP} AND o.start_time &gt;=#{start,jdbcType=TIMESTAMP})
         )
         AND r.id=#{RegionId}
 

@@ -39,4 +39,25 @@ public class BookServiceImpl  implements BookService {
 
         return seatInfoItem;
     }
+
+    @Override
+    public int checkSeatStatus(Date startTime, Date endTime, int seatId) {
+        Integer statusCode=seatMapper.querySeatStatus(startTime,endTime,seatId);
+        int code;
+        if(statusCode==null){
+            //空闲
+            code=0;
+        }else if(statusCode==0){
+            //已经预约，未入座
+            code=1;
+        }else if(statusCode==1){
+            //入座
+            code=2;
+        }else{
+            //暂时离开
+            code =3;
+        }
+
+        return code;
+    }
 }

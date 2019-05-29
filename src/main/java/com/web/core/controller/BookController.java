@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -62,5 +62,37 @@ public class BookController {
 
 
 
+    }
+
+    /**
+     * 处理预约的请求
+     * @param time 预约的时间段信息
+     * @param SeatNum 座位的编号
+     * @return
+     */
+    @RequestMapping("SelSeat")
+    @ResponseBody
+    public String SelSeat(String time,int SeatNum){
+        System.out.println("time = [" + time + "], SeatNum = [" + SeatNum + "]");
+        String[] times=time.split(" to ");
+        SimpleDateFormat sdf =   new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
+
+        Date startTime;
+        Date endTime;
+        try {
+            /*解析查询的开始和结束时段*/
+            startTime = sdf.parse(times[0]);
+            endTime = sdf.parse(times[1]);
+            int statusCode=bookService.checkSeatStatus(startTime,endTime,SeatNum);
+            if(statusCode==0){
+                //预约
+            }
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+
+
+        return "ok";
     }
 }

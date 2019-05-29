@@ -24,4 +24,13 @@ public interface SeatMapper {
      * @return
      */
     List<Seat> queryAllSeatInfo(@Param("id") int regionId);
+
+    /**
+     * 查询指定座位在指定时间段的状态信息
+     * @param startTime
+     * @param endTime
+     * @param SeatId
+     * @return
+     */
+    Integer querySeatStatus(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("seatId") int SeatId);
 }

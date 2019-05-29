@@ -20,4 +20,12 @@
         inner join region r on r.id =s.region_id
         where r.id=#{id}
     </select>
+
+    <select id="querySeatStatus" resultType="Integer">
+      select o.status from `order` o
+      where ((o.start_time &gt;= DATE_SUB(#{startTime,jdbcType=TIMESTAMP},INTERVAL 10 SECOND)
+      and o.end_time &lt;= DATE_ADD(#{endTime,jdbcType=TIMESTAMP},INTERVAL 10 SECOND))
+      and o.seat_id=#{seatId})
+
+    </select>
 </mapper>

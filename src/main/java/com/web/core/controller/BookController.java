@@ -7,6 +7,7 @@ import com.web.core.pojo.Order;
 import com.web.core.pojo.SeatInfoItem;
 import com.web.core.pojo.User;
 import com.web.core.service.BookService;
+import com.web.core.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -30,6 +31,9 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private OrderService orderService;
 
     /**
      * 处理座位信息查询请求
@@ -104,5 +108,26 @@ public class BookController {
             return "0";
         }
 
+    }
+
+
+    /**
+     * 处理用户入座的请求
+     * @param session
+     * @return
+     */
+    @RequestMapping("SignIn")
+    @ResponseBody
+    public String SignIn(HttpSession session){
+       User user= (User)session.getAttribute("User");
+       if(user!=null){
+           if(orderService.signIn(user.getId())){
+               return "1";
+           }else {
+               return "0";
+           }
+       }
+
+        return "0";
     }
 }

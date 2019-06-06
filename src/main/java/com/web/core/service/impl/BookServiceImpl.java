@@ -66,6 +66,7 @@ public class BookServiceImpl  implements BookService {
         if(checkSeatStatus(order.getStartTime(),order.getEndTime(),order.getSeatId())!=0){
             return false;
         }
+        //TOOD 这个地方需要删除数据库中旧的无用的预约信息
        seatMapper.insert(order);
         return true;
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.core.mapper.OrderMapper">
+    <select id="queryOrderStatusByUserId" resultType="int">
+        select o.status from `order` o where user_id=#{1}
+    </select>
+    <update id="changeOrderStatusByUserId">
+        update `order` o set o.status=#{2} where o.user_id=#{1}
+    </update>
+    <select id="queryOderByUserId" resultType="order">
+      select * from `order` o where o.user_id=#{1}
+    </select>
+
+</mapper>

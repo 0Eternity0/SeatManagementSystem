@@ -6,6 +6,10 @@ import com.web.core.pojo.SeatInfoItem;
 
 import java.util.Date;
 
+
+/**
+ * @author TCW
+ */
 public interface BookService {
 
     /**

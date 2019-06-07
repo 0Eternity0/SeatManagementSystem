@@ -1,5 +1,6 @@
 package com.web.core.service.impl;
 
+import com.web.core.mapper.OrderMapper;
 import com.web.core.mapper.RegionMapper;
 import com.web.core.mapper.SeatMapper;
 import com.web.core.pojo.Order;
@@ -15,11 +16,17 @@ import java.util.Date;
 import java.util.List;
 
 
+/**
+ * @author TCW
+ */
 @Service
 public class BookServiceImpl  implements BookService {
 
     @Autowired
     private SeatMapper seatMapper;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Autowired
     private RegionMapper regionMapper;
@@ -66,8 +73,9 @@ public class BookServiceImpl  implements BookService {
         if(checkSeatStatus(order.getStartTime(),order.getEndTime(),order.getSeatId())!=0){
             return false;
         }
-        //TOOD 这个地方需要删除数据库中旧的无用的预约信息
-       seatMapper.insert(order);
+
+        orderMapper.deleteOrderByUserId(order.getUserId());
+        seatMapper.insert(order);
         return true;
     }
 }

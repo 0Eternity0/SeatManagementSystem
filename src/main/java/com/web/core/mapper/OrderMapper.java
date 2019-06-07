@@ -1,6 +1,8 @@
 package com.web.core.mapper;
 
 import com.web.core.pojo.Order;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 public interface OrderMapper {
 
@@ -9,14 +11,14 @@ public interface OrderMapper {
      * @param userId
      * @return
      */
-    Integer queryOrderStatusByUserId(int userId);
+    Integer queryOrderStatusByUserId(@Param("userId") int userId);
 
     /**
      * 通过用户的id修改座位的状态
      * @param userId 用户id
      * @param newStatus 新的状态
      */
-    void changeOrderStatusByUserId(int userId,int newStatus);
+    void changeOrderStatusByUserId(@Param("userId") int userId,@Param("newStatus") int newStatus);
 
 
     /**
@@ -24,5 +26,7 @@ public interface OrderMapper {
      * @param UserId
      * @return
      */
-    Order queryOderByUserId(int UserId);
+    Order queryOderByUserId(@Param("userId") int UserId);
+
+    void deleteOrderByUserId(@Param("userId") int userId);
 }

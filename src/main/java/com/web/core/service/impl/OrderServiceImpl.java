@@ -48,6 +48,7 @@ public class OrderServiceImpl implements OrderService {
     public boolean stepOut(int UserId) {
         String status=getSeatStatus(UserId);
         if("1".equals(status)){
+            orderMapper.changeOrderStatusByUserId(UserId,2);
             return true;
         }
         return false;
@@ -57,6 +58,16 @@ public class OrderServiceImpl implements OrderService {
     public boolean checkTime(int userId, Date now) {
         Order order = orderMapper.queryOderByUserId(userId);
         if(now.after(order.getStartTime()) && order.getEndTime().after(now)){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean leave(int userId) {
+        String status=getSeatStatus(userId);
+        if(!("null".equals(status)||"0".equals(status))){
+            orderMapper.deleteOrderByUserId(userId);
             return true;
         }
         return false;

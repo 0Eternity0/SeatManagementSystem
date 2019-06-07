@@ -120,13 +120,49 @@ public class BookController {
     @ResponseBody
     public String SignIn(HttpSession session){
        User user= (User)session.getAttribute("User");
+
        if(user!=null){
+           System.out.println(user.toString());
            if(orderService.signIn(user.getId())){
                return "1";
            }else {
                return "0";
            }
        }
+
+        return "0";
+    }
+
+
+    @RequestMapping("SelLeft")
+    @ResponseBody
+    public String SelLeft(HttpSession session){
+        User user= (User)session.getAttribute("User");
+        if(user!=null){
+            System.out.println(user.toString());
+            if(orderService.stepOut(user.getId())){
+                return "1";
+            }else {
+                return "0";
+            }
+        }
+
+        return "0";
+    }
+
+
+    @RequestMapping("leave")
+    @ResponseBody
+    public String leave(HttpSession session){
+        User user= (User)session.getAttribute("User");
+        if(user!=null){
+            System.out.println(user.toString());
+            if(orderService.leave(user.getId())){
+                return "1";
+            }else {
+                return "0";
+            }
+        }
 
         return "0";
     }

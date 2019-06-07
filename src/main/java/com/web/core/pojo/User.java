@@ -60,4 +60,16 @@ public class User {
     public void setGrade(Integer grade) {
         this.grade = grade;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                ", grade=" + grade +
+                '}';
+    }
 }

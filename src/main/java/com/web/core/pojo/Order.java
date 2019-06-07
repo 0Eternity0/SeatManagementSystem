@@ -63,6 +63,7 @@ public class Order {
         this.endTime = endTime;
     }
 
+
     public Order(Integer userId, Integer seatId, Date startTime, Integer status, Date endTime) {
         this.userId = userId;
         this.seatId = seatId;

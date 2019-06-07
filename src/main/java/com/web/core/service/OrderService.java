@@ -36,4 +36,11 @@ public interface OrderService {
      */
     boolean checkTime(int userId,Date now);
 
+    /**
+     * 用户离开座位
+     * @param userId
+     * @return
+     */
+    boolean leave(int userId);
+
 }

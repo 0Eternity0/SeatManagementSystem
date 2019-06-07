@@ -2,6 +2,10 @@ package com.web.core.service;
 
 import java.util.Date;
 
+
+/**
+ * @author TCW
+ */
 public interface OrderService {
 
     /**

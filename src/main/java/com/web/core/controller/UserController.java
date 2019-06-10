@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -56,5 +59,19 @@ public class UserController {
     {
        httpSession.removeAttribute("User");
         return "1";
+    }
+
+    @RequestMapping(value = "/report",method=RequestMethod.POST)
+    @ResponseBody
+    public String report(FileUploadController fileUploadController,HttpServletRequest request,@RequestParam("file") MultipartFile file)throws Exception
+    {
+        if(fileUploadController.upload(request,file)!=null)
+        {
+            return "1";
+        }
+        else
+        {
+            return "0";
+        }
     }
 }

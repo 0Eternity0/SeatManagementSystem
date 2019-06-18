@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>离开/签到界面</title>
+    <link rel="stylesheet" href="css/left.css">
+    <script src='jQuery版本/jquery-1.12.4.js'></script>
+    <script>
+        //改变当前状态
+        var maxtime = 15 * 60;
+
+        function fuc() {
+            if (maxtime >= 0) {
+                minutes = Math.floor(maxtime / 60);
+                seconds = Math.floor(maxtime % 60);
+                msg = minutes + "分" + seconds + "秒";
+                $(".time span").html(msg);
+                if (maxtime > 0) {
+                    --maxtime;
+                } else {
+                    clearInterval(timer);
+                    alert("时间到！");
+                }
+
+            }
+        }
+        $(function() {
+            var btns = document.getElementsByTagName("button");
+
+            btns[0].onclick = function() {
+                $(".now span").text("延迟");
+                clearInterval(timer);
+                $(".time1 span").text("");
+            }
+            btns[1].onclick = function() {
+                fuc();
+                timer = setInterval("fuc()", 1000);
+                $(".now span").text("暂离");
+            }
+            btns[2].onclick = function() {
+                $(".now span").text("未就坐");
+
+                clearInterval(timer);
+                $(".time1 span").text("");
+            }
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <!-- 签到界面 -->
+    <div class="sign">
+        <p>签到/离开</p>
+    </div>
+    <!-- 签到左边 -->
+    <div class="left-sign">
+        <!-- 获取当前状态 -->
+        <div class="state">
+            <div class="now">
+                当前：
+                <span></span>
+            </div>
+        </div>
+        <!-- 倒计时 -->
+        <div class="time">
+            <div class="time1">倒计时:
+                <span></span>
+            </div>
+
+        </div>
+        <!-- 调到右边 -->
+    </div>
+
+
+    <div class="right-sign">
+        <!-- 信息表格 -->
+        <table>
+            <tr>
+                <td>学号</td>
+                <td>201731062505 </td>
+            </tr>
+            <tr>
+                <td>时间</td>
+                <td>2019年6月13日</td>
+            </tr>
+            <tr>
+                <td>区域</td>
+                <td>三楼左边阅览室01座</td>
+            </tr>
+        </table>
+        <p>
+            <此凭证拍照有效>
+        </p>
+        <!-- 各个按钮 -->
+        <!-- 延迟 -->
+        <div class="delay">
+            <button>延迟</button>
+
+        </div>
+        <!-- 暂离 -->
+        <div class="tem-left">
+            <button>暂离</button>
+        </div>
+        <!-- 离开 -->
+        <div class="left">
+            <button>离开</button>
+        </div>
+
+
+</body>
+
+</html>

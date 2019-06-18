@@ -1,0 +1,82 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: #186f4f;
+}
+
+.form{
+    padding-top: 20px;
+    height:560px;
+    width:600px;
+    border-radius: 10px;
+    background: #f7fff6;
+    margin:40px 370px;
+    border:1px solid #000;
+
+}
+.heading{
+    font-size: 50px;
+    text-align: center;
+    margin:27px 200px 50px 200px;
+   height:40px;
+    width:100px;
+    color: rgba(44, 44, 44, 0.94);
+    font-weight: 700;
+
+}
+.form-group{
+    padding: 70px 100px 0 100px;
+    height:50px;
+    width:400px;
+    background-color: white;
+
+}
+.form-control{
+    font-size: 30px;
+    width:400px;
+    height:40px;
+    border-radius: 10px;
+    word-spacing: 30px;
+    background-color: #f0f0f0;
+    transition: 0.5s;
+}
+.form-control:focus{
+    border:1px solid #186f4f;
+}
+.main-checkbox{
+    float:left;
+    width:20px;
+    height:20px;
+    background:#186f4f;
+    border-radius:50% ;
+    position:relative;
+    margin:5px 0 0 5px;
+    border: 1px solid #186f4f;
+}
+.checkbox{
+    visibility: hidden;
+    margin: 4px 0 0;
+}
+.main-checkbox label{
+    width:20px;
+    height:20px;
+    position:absolute;;
+    top: 0;
+    left:0;
+    cursor: pointer;
+}
+.submit{
+    background-color: #186f4f;
+    width:200px;
+    height:60px;
+    border-radius: 10px;
+    font-size: 30px;
+    margin: 75px 202px;
+    padding:0px 55px;
+    text-align: center;
+}
+.help{
+    float:right;
+    padding-right: 10px;
+}
+

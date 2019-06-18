@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ico的做法-->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/cssreset.css">
+    <title>图书馆预约系统</title>
+    <!--公共样式-->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src='jQuery版本/jquery-3.0.0.js'></script>
 </head>
+
 <body>
-<h1>this is index!!!</h1>
+    <div class="w">
+        <!-- banner部分开始 -->
+        <div class="banner">
+            <div class="left">
+            </div>
+            <div class="right">
+                <img src="images/logo.png" alt="">
+                <div class="welcome">
+                    <p>欢迎你：胡同学!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-fl1">
+            <img src="./images/fl1.png" alt="">
+        </div>
+        <!-- baner部分结束 -->
+        <!-- 中心部分开始 -->
+        <div class="main">
+            <!-- 主体部分 -->
+            <div class="main-left">
+                <p id="p">规则</p>
+                <iframe src="" name="iframe_a" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
+                <iframe src="" name="iframe_b" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
+                <iframe src="" name="iframe_e" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
+                <iframe src="" name="iframe_c" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
+                <iframe src="" name="iframe_d" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
+
+            </div>
+            <!-- 边导航栏部分 -->
+            <div class="main-right">
+                <ul>
+                    <li id="login"><a href="login.html" target="iframe_a">登录</a></li>
+                    <li id="register"><a href="register.html" target="iframe_b">注册</a></li>
+                    <li id="book"><a href="book.html" target="iframe_e">预约座位</a></li>
+                    <li id="left"><a href="left.html" target="iframe_d">离开/签到</a></li>
+                    <li id="mes"><a href="查询记录.html" target="iframe_c">信息查询</a></li>
+                    <li class="fl2"><img src="images/fl2.png" alt=""></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $("#login").click(function() {
+
+            $("#p").css("display", "none");
+
+        });
+        $("#mes").click(function() {
 
 
-    用户名
-    <input type="text" id="username"><br>
-    密码
-    <input type="password" id="password"><br>
-    学院
-    <input type="text" id="department"><br>
-    姓名
-    <input type="text" id="name"><br>
-    <button onclick="login()">注册</button>
+            $("#p").css("display", "none");
+        });
+    </script>
+    <!-- <script type=text/javascript>
+        document.getElementById("iframe_a").addEventLister("click", show);
 
-
+        function show(event) {
+            event.stopPragation();
+        }
+    </script> -->
 </body>
-<script src="static/libs/jquery-3.3.1.js"></script>
-<script>
-    /*$(document).ready(function () {
-
-
-    });*/
-
-    function login() {
-        var username=$('#username').val();
-
-        var password=$('#password').val();
-
-        $.ajax({
-            type:"post",
-            contentType : "application/x-www-form-urlencoded",
-            url:'/register',
-            data:{
-                username:username,
-                password:password
-            },/*表单数据*/
-            success:function (data) {
-                if(data===1){
-                    alert('注册成功');
-                }else {
-                    alert('注册失败');
-                }
-            },
-            error:function (jqXHR) {
-                console.log(jqXHR.status);
-            }
-
-        })
-    }
-
-</script>
 
 </html>

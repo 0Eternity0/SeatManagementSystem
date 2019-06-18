@@ -1,0 +1,126 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: #186f4f;
+}
+.form{
+    padding-top: 20px;
+    height:560px;
+    width:600px;
+    border-radius: 10px;
+    background: #f7fff6;
+    margin:40px 370px;
+}
+.heading{
+    font-size: 50px;
+    text-align: center;
+    margin:20px 200px 20px 200px;
+    height:40px;
+    width:100px;
+    color: rgba(44, 44, 44, 0.94);
+    font-weight: 700;
+}
+.form-group{
+    padding: 30px 100px 0 100px;
+    height:50px;
+    width:400px;
+    background-color: white;
+}
+.form-control{
+    font-size: 30px;
+    width:400px;
+    height:40px;
+    border-radius: 10px;
+    word-spacing: 30px;
+    background-color: #f0f0f0;
+}
+.register_number li{
+    position:absolute;
+    list-style: none;
+}
+.register_name{
+    padding: 30px 100px 0 100px;
+    height:50px;
+    width:400px;
+    background-color: white;
+}
+.username{
+    font-size: 30px;
+    width:400px;
+    height:40px;
+    border-radius: 10px;
+    word-spacing: 30px;
+    background-color: #f0f0f0;
+}
+.register_name li{
+    position:absolute;
+    list-style: none;
+
+}
+.register_pas{
+    padding: 30px 100px 0 100px;
+    height:50px;
+    width:400px;
+    background-color: white;
+}
+.password{
+    font-size: 30px;
+    width:400px;
+    height:40px;
+    border-radius: 10px;
+    word-spacing: 30px;
+    background-color: #f0f0f0;
+}
+.register_pas li{
+    position:absolute;
+    list-style: none;
+
+}
+.register_tel{
+    padding: 30px 100px 0 100px;
+    height:50px;
+    width:400px;
+    background-color: white;
+}
+.tel{
+    font-size: 30px;
+    width:400px;
+    height:40px;
+    border-radius: 10px;
+    word-spacing: 30px;
+    background-color: #f0f0f0;
+}
+.register_tel li{
+    position:absolute;
+    list-style: none;
+}
+
+.dep{
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    margin-left: 175px;
+    margin-top: 30px;
+}
+.register_sub{
+    background-color: #186f4f;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    font-size: 30px;
+    margin: 30px 148px;
+    padding: 0px 55px;
+    text-align: center;
+
+}
+.submit{
+    background-color: #186f4f;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 30px;
+    margin: 0px;
+    padding: 0px 55px;
+    text-align: center;
+    border-style: none;
+}

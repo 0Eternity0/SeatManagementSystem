@@ -1,0 +1,110 @@
+.booktop{
+	margin-top: 30px;
+}
+.booktop span a{
+	text-decoration: none;
+	font-size: 20px;
+	margin-left: 20px;
+	color: grey;
+}
+/*预约时间*/
+.booktop h2{
+	display: inline;
+	margin-top: 20px;
+	margin-left: 20px;
+	color: #a2c85b;
+}
+.container_time{
+	display: none;
+}
+.container_time h3{
+	color: #186f4f;
+	margin-left: 20px;
+}
+.container_time1{
+	margin-top: 50px;
+	margin-left: 10px;
+}
+/*预约区域*/
+.container_area{
+	margin-top: 30px;
+	display: none;
+}
+.area1f_1,.area1f_2,.area2f_1,.area2f_2,.area3f_1,.area3f_2,.area4f_1,.area4f_2,.area5f_1{
+	width: 200px;
+	height: 100px;
+	background: #f5f5f5;
+	display:table;
+	margin-top:50px;
+	margin-left:20px;
+	float: left;
+	border-radius: 8px;
+	border: 2px solid #9d9d9da1;
+}
+.area1f_1_font{
+	/*margin:0 auto;*/
+	display: table-cell;
+    vertical-align: top;
+}
+.area_font_h4{
+	color: green;
+	font-family: "幼圆";
+	font-weight: bold;
+	font-size: 22px;
+	text-align: center;
+	margin-top: 20px;
+}
+.area_font_p{
+	color: grey;
+	text-align: center;
+}
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+    float: left;
+}
+/*预约座位*/
+.container_seat{
+	margin-top:50px;
+	margin-left: 20px;
+	margin-right: 20px;
+	/*display: none;*/
+}
+.container_seat_book li{
+
+}
+.container_seat_book li a{
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-color:#d0d7d0;
+	float: left;
+	margin-left: 16px;
+	margin-top:16px;
+	border-radius: 8px;
+	font-family: "icomoon";
+}
+.container_seat_book li a:hover{
+	background-color:#186f4f;
+
+}
+.btn_seat{
+	display: block;
+	margin:0px auto;
+	background-color: #186f4f;
+	height: 40px;
+	width: 200px;
+	color: white;
+	line-height: 40px;
+}
+.selected{
+	font-weight:bold; 
+	background-color: #186f4f; 
+	color:white;}
+	/*时钟*/
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";background:#eee;}
+.swf{width:300px;height:300px;overflow:hidden;margin:40px auto;}

@@ -1,0 +1,18 @@
+.record-all-success{ border: #d1eac1 2px solid; border-radius:5px;margin:20px; box-shadow: 1px 1px #dbdbdb;}
+.record-title-s{font:normal 20px/39px "songti";color: #085b04;margin-left: -10px;background-color: #d1eac1;margin-top:  0px;border: #d1eac1 2px;text-indent: 15px; }
+.record-body-s{font-family:"songti"; text-align:justify;text-indent: 15px;}
+.record-head-s{border: rgba(163,46,107,0.29);margin-left: 10px;font-size: 15px;color: saddlebrown;background-color: #9d9d9d;}
+.record-head.h3{background-color: #a3d2a8;text-align: justify;text-indent: 15px;}
+.button-cancel{font-size:15px; line-height:30px; height:50px; padding:0 15px; background-color: #f09329;text-decoration-line: none;color: white;border-radius: 2px;margin-left: 1100px;}
+
+.record-all-blacklist{border: #f0dfd5 2px solid; border-radius: 5px; margin: 20px;box-shadow:1px 1px #f0dfd5;}
+.record-title-b{font:normal 20px/39px "songti";color: #8f0f03;margin-left: -10px;background-color: #fff1dc;margin-top: 0px;border:#fff1dc 2px; text-indent: 15px;}
+.record-body-b{font-family:"songti"; text-align:justify;text-indent: 15px;}
+.record-head-b{border: rgba(163,46,107,0.29);margin-left: 10px;font-size: 15px;color: saddlebrown;background-color: #9d9d9d;}
+.record-head.h3{background-color: #d2c1b7;text-align: justify;text-indent: 15px;}
+
+.record-all-warning{border: #f0e9c1 2px solid; border-radius: 5px; margin: 20px;box-shadow:1px 1px #f0e9b4;}
+.record-title-w{font:normal 20px/39px "songti";color: #ec0900;margin-left: -10px;background-color: #fff7ae;margin-top: 0px;border: #fffabd 2px; text-indent: 15px;}
+.record-body-w{font-family:"songti"; text-align:justify;text-indent: 15px;}
+.record-head-w{border: rgba(163,46,107,0.29);margin-left: 10px;font-size: 15px;color: saddlebrown;background-color: #9d9d9d;}
+.record-head.h3{background-color: #d2c1b7;text-align: justify;text-indent: 15px;}

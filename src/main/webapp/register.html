@@ -6,10 +6,48 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>注册界面</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script>
+     var vue=new vue({
+         el:'#reg',
+         data:{
+             username:'',
+             name:'',
+             password:'',
+             users:{},
+             department:'',
+             inited:true
+         },
+
+         dopost:function () {
+             var url='User/register';
+             var param=new URLSearchParams();
+             param.append("username",this.username);
+             param.append("password",this.password);
+             param.append("users",this.users);
+              axios.post(url,param).then(function (result) {
+                  if(vue.inited){
+                      vue.users=result.data.users;
+                      vue.inited=false;
+                      return;
+                  }
+                  if(result.data.msg.indexOf('用户名已存在')>=0){
+                      alert('用户名已存在，注册失败');
+                  }else{
+                      alert('注册成功');
+                      vue.users=result.data.users;
+                      vue.inited=false;
+                  }
+              });
+
+         },
+     })
+
+     }
+    </script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="reg">
         <form action="#" method="post">
             <fieldset>
                 <div class="col-lg-4 col-lg-offset-5 col-md-1 col-md-offset-7 col-sm-4 col-sm-offset-4 col-xs-9 col-xs-offset-4">
@@ -20,29 +58,29 @@
                 <div class="form-group">
                     <label class="sr-only">number：</label>
                     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="text" class="form-control" name="number" placeholder="请输入学号"><br>
+                        <input type="text" class="form-control" id="username" placeholder="请输入学号"><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="sr-only">name：</label>
                     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="text" class="form-control" name="name" placeholder="请输入名字"><br>
+                        <input type="text" class="form-control" id="name" placeholder="请输入名字"><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="sr-only">password:</label>
                     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="password" class="form-control" name="pwd" placeholder="请输入密码"><br>
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码"><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="sr-only">tel：</label>
                     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="text" class="form-control" name="tel" placeholder="请输入电话"><br>
+                        <input type="text" class="form-control" id="tel" placeholder="请输入电话"><br>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+                    <div id="department" class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
                         <select class="form-control">
                     <option>计算机科学学院</option>
                     <option>电气信息学院</option>

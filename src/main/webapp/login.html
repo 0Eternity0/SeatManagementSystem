@@ -6,10 +6,45 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>登录界面</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="jQuery版本/jquery-3.0.0.js"></script>
+    <script>
+$().ready(function(){
+    $('#login_btn').click(function(){
+        if($('#username').val()===""||$('#password').val()===""){
+            alert("用户名或者密码不能为空!");
+        }
+        else{
+            $.ajax({
+                type:"post",
+                url:"User/Login",
+                data:"username="+escape($('#username').val())+"$password="+escape($('#password').val()),
+                beforSend:function(){
+                    $("#container").css("display","none");
+                },
+                success:function(msg){
+                    if(msg=="successs"){
+                        parent.document.location.href="index.html";//如果登陆成功则跳到管理界面
+                        parent.tb_remove();
+                    }
+                    if(msg=="fail"){
+                        alert("登陆失败！");
+                    }
+                },
+                complete:function(data){
+                    $("#container").css("display","block");
+                },
+                error:function(XMLHttpRequest,textStatus,thrownError){
+
+                }
+            });
+        }
+    });
+});
+    </script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <form action="#" method="post">
             <fieldset>
                 <div class="col-lg-4 col-lg-offset-5 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-4 col-xs-9 col-xs-offset-4">
@@ -18,13 +53,13 @@
                 <div class="form-group has-feedback">
                     <label class="sr-only">username：</label>
                     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="text" class="form-control" name="name" placeholder="请输入学号"><br>
+                        <input type="text" id="username" class="form-control" name="name" placeholder="请输入学号"><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="sr-only">password:</label>
                     <div class="col-lg-4 col-lg-offset-4  col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="password" class="form-control" name="pwd" placeholder="请输入密码">
+                        <input type="password" id="password" class="form-control" name="pwd" placeholder="请输入密码">
                     </div>
                 </div>
                 <div class="form-group">
@@ -36,7 +71,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-4 col-lg-offset-4  col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <button type="submit" class="btn" style="background-color:#186f4f;">登录</button>
+                        <button type="submit" id="login_btn"class="btn"onclick="parent.tb_remove()" style="background-color:#186f4f;">登录</button>
                     </div>
                 </div>
             </fieldset>

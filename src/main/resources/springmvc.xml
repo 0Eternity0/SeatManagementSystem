@@ -11,17 +11,17 @@
 	<!-- 属性文件的加载 -->
 	<context:property-placeholder location="classpath:setting.properties"/>
 
-	<bean id="multipartResolver"
+<!--	<bean id="multipartResolver"
 		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- 上传文件大小上限，单位为字节（10MB） -->
+		&lt;!&ndash; 上传文件大小上限，单位为字节（10MB） &ndash;&gt;
 		<property name="maxUploadSize">
 			<value>10485760</value>
 		</property>
-		<!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 -->
+		&lt;!&ndash; 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 &ndash;&gt;
 		<property name="defaultEncoding">
 			<value>UTF-8</value>
 		</property>
-	</bean>
+	</bean>-->
 	<!-- 配置注解驱动 -->
 	<mvc:annotation-driven />
 
@@ -35,15 +35,21 @@
 	<mvc:resources location="/" mapping="/**/*.ico"/>
 	<mvc:resources location="/" mapping="/**/*.gif"/>
 	<mvc:resources location="/" mapping="/**/*.woff"/>
+	<mvc:resources location="/" mapping="/**/*.woff2"/>
 	<mvc:resources location="/" mapping="/**/*.properties"/>
 	<mvc:resources location="/" mapping="/**/*.pdf"/>
 	<mvc:resources location="/" mapping="/**/*.worker.js"/>
 
+
 	<!-- 配置视图解析器 -->
 	<bean	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
-		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="prefix" value="/" />
 		<!-- 后缀 -->
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
 </beans>
+

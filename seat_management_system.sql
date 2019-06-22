@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-05-25 19:59:48
+Date: 2019-06-22 11:33:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,6 +34,10 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of order
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for region
 -- ----------------------------
 DROP TABLE IF EXISTS `region`;
@@ -44,6 +48,12 @@ CREATE TABLE `region` (
   `seat_num` int(11) NOT NULL DEFAULT '0' COMMENT '座位数',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of region
+-- ----------------------------
+INSERT INTO `region` VALUES ('1', '三楼A区', '计算机科学区', '10');
+INSERT INTO `region` VALUES ('2', '三楼B区', '文学区', '10');
 
 -- ----------------------------
 -- Table structure for report
@@ -66,6 +76,10 @@ CREATE TABLE `report` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of report
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for seat
 -- ----------------------------
 DROP TABLE IF EXISTS `seat`;
@@ -80,6 +94,30 @@ CREATE TABLE `seat` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of seat
+-- ----------------------------
+INSERT INTO `seat` VALUES ('1', '1', '(1,1)', '0');
+INSERT INTO `seat` VALUES ('2', '1', '(1,2)', '0');
+INSERT INTO `seat` VALUES ('3', '1', '(1,3)', '0');
+INSERT INTO `seat` VALUES ('4', '1', '(1,4)', '0');
+INSERT INTO `seat` VALUES ('5', '1', '(1,5)', '0');
+INSERT INTO `seat` VALUES ('6', '1', '(2,1)', '0');
+INSERT INTO `seat` VALUES ('7', '1', '(2,2)', '0');
+INSERT INTO `seat` VALUES ('8', '1', '(2,3)', '0');
+INSERT INTO `seat` VALUES ('9', '1', '(2,4)', '0');
+INSERT INTO `seat` VALUES ('10', '1', '(2,5)', '0');
+INSERT INTO `seat` VALUES ('11', '2', '(1,1)', '0');
+INSERT INTO `seat` VALUES ('12', '2', '(1,2)', '0');
+INSERT INTO `seat` VALUES ('13', '2', '(1,3)', '0');
+INSERT INTO `seat` VALUES ('14', '2', '(1,4)', '0');
+INSERT INTO `seat` VALUES ('15', '2', '(1,5)', '0');
+INSERT INTO `seat` VALUES ('16', '2', '(2,1)', '0');
+INSERT INTO `seat` VALUES ('17', '2', '(2,2)', '0');
+INSERT INTO `seat` VALUES ('18', '2', '(2,3)', '0');
+INSERT INTO `seat` VALUES ('19', '2', '(2,4)', '0');
+INSERT INTO `seat` VALUES ('20', '2', '(2,5)', '0');
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -91,4 +129,10 @@ CREATE TABLE `user` (
   `department` varchar(30) DEFAULT NULL COMMENT '学院信息',
   `grade` int(11) DEFAULT NULL COMMENT '信用评级分',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', '2017', '2017', '测试', '计科院', '10');
+INSERT INTO `user` VALUES ('2', '2018', '2018', '测试2', '计科院', '10');

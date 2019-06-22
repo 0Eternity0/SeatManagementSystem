@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	        <!--时间css start-->
         <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
         <!--时间css end-->
@@ -70,6 +71,14 @@
      			 }
     			})
 				})
+			$(function(){
+
+			    $("a").click(function(){
+			        $(this).addclass("current");
+				});
+
+			});
+
    		</script>
 </head>
 <body>
@@ -193,7 +202,7 @@
 		        <!-- 选择区域结束 -->
 		        <!-- 选择座位开始 -->
 		        <div class="container_seat" id="container_seat">
-		        	<ul class="container_seat_book">
+		        	<ul class="container_seat_book" id="container_seat_book">
 		        		<li id="1"><a href="">1</a></li>
 		        		<li id="2"><a href="">2</a></li>
 		        		<li id="3"><a href="">3</a></li>

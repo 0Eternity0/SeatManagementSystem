@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="css/cssreset.css">
     <title>图书馆预约系统</title>
     <!--公共样式-->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href=css/index.css>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src='jQuery版本/jquery-3.0.0.js'></script>
+    <link rel="stylesheet" href="css/left.css">
 </head>
 
 <body>
@@ -36,22 +37,17 @@
         <div class="main">
             <!-- 主体部分 -->
             <div class="main-left">
-                <p id="p">规则</p>
-                <iframe src="" name="iframe_a" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
-                <iframe src="" name="iframe_b" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
-                <iframe src="" name="iframe_e" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
-                <iframe src="" name="iframe_c" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
-                <iframe src="" name="iframe_d" scrolling="no" frameborder="0" borber="0" width="100%" height="90%" style="padding-top:100px"></iframe>
-
+                <iframe src="p.html" name="mainiframe" scrolling="no" frameborder="0" borber="0" width="100%" height="100%"></iframe>
             </div>
             <!-- 边导航栏部分 -->
             <div class="main-right">
                 <ul>
-                    <li id="login"><a href="login.html" target="iframe_a">登录</a></li>
-                    <li id="register"><a href="register.html" target="iframe_b">注册</a></li>
-                    <li id="book"><a href="book.html" target="iframe_e">预约座位</a></li>
-                    <li id="left"><a href="left.html" target="iframe_d">离开/签到</a></li>
-                    <li id="mes"><a href="查询记录.html" target="iframe_c">信息查询</a></li>
+                    <a href="p.html" target="iframe_f"></a>
+                    <li id="login"><a href="login.html" target="mainiframe">登录</a></li>
+                    <li id="register"><a href="register.html" target="mainiframe">注册</a></li>
+                    <li id="book"><a href="book.html" target="mainiframe">预约座位</a></li>
+                    <li id="left"><a href="left.html" target="mainiframe">离开/签到</a></li>
+                    <li id="mes"><a href="查询记录.html" target="mainiframe">信息查询</a></li>
                     <li class="fl2"><img src="images/fl2.png" alt=""></li>
                 </ul>
 
@@ -60,16 +56,16 @@
 
     </div>
     <script>
-        $("#login").click(function() {
-
-            $("#p").css("display", "none");
-
-        });
-        $("#mes").click(function() {
-
-
-            $("#p").css("display", "none");
-        });
+        // $("#login").click(function() {
+        //     var mainiframe=document.getElementById("mainiframe");
+        //     parent.mainiframe.contentWindow.loaction.href="login.html";
+        //
+        // });
+        // $("#mes").click(function() {
+        //
+        //
+        //     $("#p").css("display", "none");
+        // });
     </script>
     <!-- <script type=text/javascript>
         document.getElementById("iframe_a").addEventLister("click", show);
@@ -78,6 +74,7 @@
             event.stopPragation();
         }
     </script> -->
+
 </body>
 
 </html>

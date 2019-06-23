@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>登录界面</title>
-    <script src="js/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
     <div class="container">
-        <form action="#" >
+        <form action="#" method="post">
             <fieldset>
                 <div class="col-lg-4 col-lg-offset-5 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-4 col-xs-9 col-xs-offset-4">
                     <h2>Login</h2>
@@ -19,13 +18,13 @@
                 <div class="form-group has-feedback">
                     <label class="sr-only">username：</label>
                     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="text" class="form-control" name="name" placeholder="请输入学号" id="name"><br>
+                        <input type="text" class="form-control" name="name" placeholder="请输入学号"><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="sr-only">password:</label>
                     <div class="col-lg-4 col-lg-offset-4  col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <input type="password" class="form-control" name="pwd" placeholder="请输入密码" id="password">
+                        <input type="password" class="form-control" name="pwd" placeholder="请输入密码">
                     </div>
                 </div>
                 <div class="form-group">
@@ -37,56 +36,12 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-4 col-lg-offset-4  col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-                        <button onclick="login()" class="btn" style="background-color:#186f4f;">登录</button>
+                        <button type="submit" class="btn" style="background-color:#186f4f;">登录</button>
                     </div>
                 </div>
-
             </fieldset>
         </form>
     </div>
 </body>
-
-<!--模态框组件-->
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel">提示</h4>
-            </div>
-            <div class="modal-body" id="mes"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            </div>
-        </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div>
-
-
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/common.js"></script>
-<script>
-    function login() {
-        var username=$('#name').val();
-        var password=$('#password').val();
-        post('User/login',{username:username,password:password},function (date) {
-            if (date==='0'){
-                console.log("登陆失败");
-            } else {
-                showMes('成功');
-                console.log("成功");
-                window.location.href=base_url+'/book.html';
-            }
-        });
-
-    };
-
-    function showMes(mes) {
-        $('#mes').text(mes);
-        $('#Modal').modal('show');
-    }
-
-</script>
 
 </html>

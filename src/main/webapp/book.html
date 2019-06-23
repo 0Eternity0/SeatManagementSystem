@@ -11,75 +11,16 @@
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
         <!--时间css end-->
-        <link href="css/animate.min.css" rel="stylesheet">
-        <link href="css/prettify-1.0.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="css/book.css">
-        <link rel="stylesheet" type="text/css" href="css/default.css">
      	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
          <!--时间js start-->
 		<script src="js/moment-with-locales.js"></script>
 		<script src="js/bootstrap-datetimepicker.js"></script>
-		<script src="js/layDate-v5.0.9/layDate/layDate.js"></script>
+		<script src="js/layDate-v5.0.9/laydate/laydate.js"></script>
 
-        <!--时间js end-->
-        		<script type="text/javascript" >      //booktop部分的js
-			$(document).ready(function(event){
-				$("#book_jump1").click(function(){
-				$("#container_time").css("display","block");
-                    event.preventDefault();
-				$("#container_area").css("display","none");
-				$("#container_seat").css("display","none");			
-				});
-				$("#book_jump2").click(function(event){
-				$("#container_time").css("display","none");
-				$("#container_area").css("display","block");
-				event.preventDefault();
-				$("#container_seat").css("display","none");					
-				});
-				$("#book_jump3").click(function(event){
-				$("#container_time").css("display","none");
-				$("#container_area").css("display","none");
-				$("#container_seat").css("display","block");
-				event.preventDefault();
-				});
-			});
-		</script>
-		<script>
-		        $('.container_seat_book li').click(function(){       //点击座位选择
-      			$(this).addClass('selected').siblings().removeClass('selected');
-       			$(this).attr('value',1).siblings().removeAttr('value');    //选择的座位value变成1，他的兄弟变成0
-    			})
-    			var list=$('.container_seat_book li');
-    			$('#cc').on('click',function(){
-    			for(var i=0;i<list.length;i++){           //遍历观察value的值
-        			if(list[i].value==1)
-        			{
-          			var status=list[i].value;             //当value值为1，则status变成1
-          		    }
-        			var id=list[i].getAttribute("id");    //获取当前li的id
-   				 }
-   				     $.ajax({
-     				 url: 'Book/querySeat',
-     				 type:'post',
-     				 data:{msg:status},
-     				 data:{msg:id},
-     				 dataType:'json',
-     				 success:function(data){
-        			console.log(data)
-     			 }
-    			})
-				})
-			$(function(){
 
-			    $("a").click(function(){
-			        $(this).addclass("current");
-				});
 
-			});
-
-   		</script>
 </head>
 <body>
 			    <div style="" id="book">
@@ -108,11 +49,7 @@
             						</div>
        							</div>
     						</div>
-						<script>
-							laydate.render({
-  							elem: '#test1' //指定元素
-							})
-						</script>
+
 						</div>		
 			
 					<div class="container_time2">
@@ -127,13 +64,7 @@
         						</div>
     						</div>		 
 					</div>
-					<script>
-					laydate.render({
-  						elem: '#test9'
- 						 ,type: 'time'
-  						,range: true
-						})
-					</script>
+
 					<div>温馨提示：请按照要求以半小时为间隔选取时间。</div>
 					<div style="width:500px;height:500px;margin:auto">
 						<canvas id="canvas" width="500px" height="500px" style=""></canvas>
@@ -308,4 +239,72 @@
 		        <!-- 选择座位结束 -->
 		    </div>
 </body>
+<script>
+    laydate.render({
+        elem: '#test9'
+        ,type: 'time'
+        ,range: true
+    });
+    laydate.render({
+        elem: '#test1' //指定元素
+    });
+
+
+    <!--时间js end-->
+        //booktop部分的js
+        $(document).ready(function(event){
+            $("#book_jump1").click(function(){
+                $("#container_time").css("display","block");
+                event.preventDefault();
+                $("#container_area").css("display","none");
+                $("#container_seat").css("display","none");
+            });
+            $("#book_jump2").click(function(event){
+                $("#container_time").css("display","none");
+                $("#container_area").css("display","block");
+                event.preventDefault();
+                $("#container_seat").css("display","none");
+            });
+            $("#book_jump3").click(function(event){
+                $("#container_time").css("display","none");
+                $("#container_area").css("display","none");
+                $("#container_seat").css("display","block");
+                event.preventDefault();
+            });
+        });
+
+        $('.container_seat_book li').click(function(){       //点击座位选择
+            $(this).addClass('selected').siblings().removeClass('selected');
+            $(this).attr('value',1).siblings().removeAttr('value');    //选择的座位value变成1，他的兄弟变成0
+        })
+        var list=$('.container_seat_book li');
+        $('#cc').on('click',function(){
+            for(var i=0;i<list.length;i++){           //遍历观察value的值
+                if(list[i].value==1)
+                {
+                    var status=list[i].value;             //当value值为1，则status变成1
+                }
+                var id=list[i].getAttribute("id");    //获取当前li的id
+            }
+            $.ajax({
+                url: 'Book/querySeat',
+                type:'post',
+                data:{msg:status},
+                data:{msg:id},
+                dataType:'json',
+                success:function(data){
+                    console.log(data)
+                }
+            })
+        })
+        $(function(){
+
+            $("a").click(function(){
+                $(this).addclass("current");
+            });
+
+        });
+
+	</script>
+
 </html>

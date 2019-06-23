@@ -8,48 +8,6 @@
     <title>离开/签到界面</title>
     <link rel="stylesheet" href="css/left.css">
     <script src='js/jquery-2.1.1.min.js'></script>
-    <script>
-        //改变当前状态
-        var maxtime = 15 * 60;
-
-        function fuc() {
-            if (maxtime >= 0) {
-                minutes = Math.floor(maxtime / 60);
-                seconds = Math.floor(maxtime % 60);
-                msg = minutes + "分" + seconds + "秒";
-                $(".time span").html(msg);
-                if (maxtime > 0) {
-                    --maxtime;
-                } else {
-                    clearInterval(timer);
-                    alert("时间到！");
-                }
-
-            }
-        }
-        $(function() {
-            var btns = document.getElementsByTagName("button");
-
-            btns[0].onclick = function() {
-                $(".now span").text("延迟");
-                clearInterval(timer);
-                $(".time1 span").text("");
-            }
-            btns[1].onclick = function() {
-                fuc();
-                timer = setInterval("fuc()", 1000);
-                $(".now span").text("暂离");
-            }
-            btns[2].onclick = function() {
-                $(".now span").text("未就坐");
-
-                clearInterval(timer);
-                $(".time1 span").text("");
-            }
-
-
-        });
-    </script>
 
 </head>
 
@@ -115,5 +73,48 @@
     </div>
 
 </body>
+
+<script>
+    //改变当前状态
+    var maxtime = 15 * 60;
+
+    function fuc() {
+        if (maxtime >= 0) {
+            minutes = Math.floor(maxtime / 60);
+            seconds = Math.floor(maxtime % 60);
+            msg = minutes + "分" + seconds + "秒";
+            $(".time span").html(msg);
+            if (maxtime > 0) {
+                --maxtime;
+            } else {
+                clearInterval(timer);
+                alert("时间到！");
+            }
+
+        }
+    }
+    $(function() {
+        var btns = document.getElementsByTagName("button");
+
+        btns[0].onclick = function() {
+            $(".now span").text("延迟");
+            clearInterval(timer);
+            $(".time1 span").text("");
+        }
+        btns[1].onclick = function() {
+            fuc();
+            timer = setInterval("fuc()", 1000);
+            $(".now span").text("暂离");
+        }
+        btns[2].onclick = function() {
+            $(".now span").text("未就坐");
+
+            clearInterval(timer);
+            $(".time1 span").text("");
+        }
+
+
+    });
+</script>
 
 </html>

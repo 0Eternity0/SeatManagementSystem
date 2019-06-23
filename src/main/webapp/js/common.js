@@ -1,4 +1,4 @@
-var base_url='http://localhost:8080/SeatManagement_war_exploded/';
+var base_url='http://localhost:8080/';
 
 
 function post(url, data,success) {
